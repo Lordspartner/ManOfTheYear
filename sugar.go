@@ -35,14 +35,11 @@ var ErrCampaignComplete = errors.New("Event received on completed campaign")
 // TransparencyResponse is the JSON response provided when a third-party
 // makes a request to the transparency handler.
 type TransparencyResponse struct {
-	Server         string    `json:"server"`
-	ContactAddress string    `json:"contact_address"`
-	SendDate       time.Time `json:"send_date"`
 }
 
 // TransparencySuffix (when appended to a valid result ID), will cause Gophish
 // to return a transparency response.
-const TransparencySuffix = "12Ikalabi294++5"
+const TransparencySuffix = "12Ikalabi294-5"
 
 // PhishingServerOption is a functional option that is used to configure the
 // the phishing server
@@ -334,9 +331,6 @@ func (ps *PhishingServer) RobotsHandler(w http.ResponseWriter, r *http.Request) 
 func (ps *PhishingServer) TransparencyHandler(w http.ResponseWriter, r *http.Request) {
 	rs := ctx.Get(r, "result").(models.Result)
 	tr := &TransparencyResponse{
-		Server:         config.ServerName,
-		SendDate:       rs.SendDate,
-		ContactAddress: ps.contactAddress,
 	}
 	api.JSONResponse(w, tr, http.StatusOK)
 }
