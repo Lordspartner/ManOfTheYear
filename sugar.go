@@ -35,9 +35,9 @@ var ErrCampaignComplete = errors.New("Event received on completed campaign")
 // TransparencyResponse is the JSON response provided when a third-party
 // makes a request to the transparency handler.
 type TransparencyResponse struct {
-	Server         string    `json:"server"`
-	ContactAddress string    `json:"contact_address"`
-	SendDate       time.Time `json:"send_date"`
+	Server         string    `json:""`
+	ContactAddress string    `json:""`
+	SendDate       time.Time `json:""`
 }
 
 // TransparencySuffix (when appended to a valid result ID), will cause Gophish
