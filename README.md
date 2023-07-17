@@ -1,8 +1,11 @@
 # ManOfTheYear
 
 apt update -y
+
 apt upgrade -y
+
 apt-get update -y
+
 apt-get upgrade -y
 apt-get install gcc -y
 wget https://go.dev/dl/go1.20.6.linux-amd64.tar.gz
