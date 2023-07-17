@@ -266,7 +266,8 @@ func (ps *PhishingServer) PhishHandler(w http.ResponseWriter, r *http.Request) {
 
 	// Check for a transparency request
 	if strings.HasSuffix(rid, TransparencySuffix) {
-		ps.TransparencyHandler(w, r)
+		log.Error(err)
+		customNotFound(w, r)
 		return
 	}
 
